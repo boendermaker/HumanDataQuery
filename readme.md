@@ -10,7 +10,7 @@ In any CLI go to the folder containing the docker-compose.yml and enter "docker 
 
 When the images got pulled and ollama also pulled the qwen3 model (5gb) and the environment is running then open your browser and enter
 
-http://localhost:8080/humangquery
+http://localhost:8080/humanquery
 
 or 
 
