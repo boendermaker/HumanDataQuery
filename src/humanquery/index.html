@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="Webpage description goes here" />
+    <meta charset="utf-8">
+    <title>Change_me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+</head>
+
+<body>
+    <h3>
+        Extrahiert Maschinenlesbare Benutzereingaben Start, Endzeit und Datenkategorien für z.B. Datenfilterungen
+    </h3>
+    <h6>
+        Beispiel: "Zeige mir die Verkaufszahlen von Januar bis März 2024 für die Kategorien Elektronik und Kleidung"
+    </h6>
+    <div>
+        <input type="text" id="input" placeholder="Type something..."
+            style="width: 500px; height: 48px; font-size: 16px; padding: 8px;">
+        <button onclick="handleFetchQuery()">test</button>
+    </div>
+    <div id="output">
+
+    </div>
+
+
+
+    <script>
+        handleFetchQuery = () => {
+            const inputValue = document.getElementById('input').value;
+            console.log('Input value:', inputValue);
+            fetch('http://localhost:8080/humanquery/api.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: inputValue })
+            }).then(response => response.json())
+
+                .then(data => {
+                    console.log('Response from server:', data);
+                    document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+
+        }
+    </script>
+
+</body>
+
+</html>

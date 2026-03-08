@@ -1,0 +1,34 @@
+services:
+  web:
+    image: php:8.2-apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - ai-network
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - ai-network
+    # GPU-Unterstützung aktivieren
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1 # 'all' nutzen, wenn du mehrere GPUs hast
+              capabilities: [ gpu ]
+    entrypoint: /bin/sh -c "ollama serve & sleep 5 && ollama pull qwen3 && wait"
+
+networks:
+  ai-network:
+    driver: bridge
+
+volumes:
+  ollama_data:
