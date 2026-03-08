@@ -17,3 +17,6 @@ or
 http://localhost:8080/toolbridge
 
 To run the two examples
+
+
+![Flowers](https://www.boendermaker.de/github/humanquery.gif?)
