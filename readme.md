@@ -1,8 +1,8 @@
 # Human Data Query with a LLM (ollama) over PHP
 
-This an example how toolcalling and systemprompting with PHP to an LLM-Instance (ollama) can be done.
+This is an example how toolcalling and systemprompting with PHP to an LLM-Instance (ollama) can be done.
 
-In this example two PHP Middlewares receives each Human Input by REST-Request from a HTML-Page, processes the Userinput and puts it into a LLM to transform the Userinput into Machine readable Data, or call Toolfunctions to receive the requested Information by the User, or to do things requested by the user.
+In this example two PHP Middlewares receives each Human Input by REST-Request from an input on a HTML-Page, processes the Userinput and pushes it into a LLM to transform the Userinput into Machine readable Data, or call Toolfunctions to receive the requested Information by the User, or to do things requested by the user.
 
 Usage:
 
